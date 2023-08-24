@@ -1,4 +1,4 @@
-package com.example.clinicaOdontologica;
+package com.dh.clinicaOdontologica;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
