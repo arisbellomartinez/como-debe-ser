@@ -1,4 +1,4 @@
-package com.dh.clinicaOdontologica.model;
+package com.dh.clinicaOdontologica.entity;
 
 public class Paciente {
     private String nombre;
