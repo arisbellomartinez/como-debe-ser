@@ -13,7 +13,13 @@ public class Turno {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    public Turno (){
+    @ManyToOne
+    @JoinColumn(name = "odontologo_id")
+    private Odontologo odontologo;
 
-    }
+    @OneToOne
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+
+    public Turno (){}
 }
