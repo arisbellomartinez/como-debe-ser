@@ -1,4 +1,4 @@
-package com.dh.clinicaOdontologica.service;
+package com.dh.clinicaOdontologica.service.Impl;
 
 import org.springframework.stereotype.Service;
 

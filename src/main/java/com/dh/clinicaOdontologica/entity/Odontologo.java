@@ -13,6 +13,7 @@ import java.util.Set;
 @Table(name = "odontologo")
 public class Odontologo {
     @Id
+    @SequenceGenerator(name = "odontologos_id", sequenceName = "odontologos_id", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
@@ -24,13 +25,14 @@ public class Odontologo {
     public Odontologo() {}
 
     @Autowired
-    public Odontologo(String nombre, String apellido, Integer matricula) {
+    public Odontologo(String nombre, String apellido, Integer matricula, Set<Turno> turnos) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.matricula = matricula;
+        this.turnos = turnos;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "odontologo")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "odontologo", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Turno> turnos;
 

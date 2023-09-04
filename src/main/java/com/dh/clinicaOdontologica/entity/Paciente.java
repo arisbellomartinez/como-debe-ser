@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Paciente {
 
     @Id
+    @SequenceGenerator(name = "pacientes_id", sequenceName = "pacientes_id", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
@@ -20,12 +23,12 @@ public class Paciente {
     private String apellido;
     private String domicilio;
     private Integer dni;
-    private String fechaAlta;
+    private LocalDate fechaAlta;
 
     public Paciente() {}
 
     @Autowired
-    public Paciente(String nombre, String apellido, String domicilio, Integer dni, String fechaAlta, Turno turno) {
+    public Paciente(String nombre, String apellido, String domicilio, Integer dni, LocalDate fechaAlta, Turno turno) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
@@ -34,7 +37,7 @@ public class Paciente {
         this.turno = turno;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "paciente")
+    @OneToOne(mappedBy = "paciente")
     private Turno turno;
 
 }
