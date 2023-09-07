@@ -17,7 +17,7 @@ import java.util.Set;
 public class OdontologoService implements IOdontologoService {
 
     @Autowired
-    private IOdontologoRepository odontologoRepository;
+    IOdontologoRepository odontologoRepository;
 
     @Autowired
     ObjectMapper mapper;
@@ -38,9 +38,10 @@ public class OdontologoService implements IOdontologoService {
         return odontologosDTO;
     };
 
-    public void agregarOdontologo(OdontologoDTO odontologoDTO){
+    @Override
+    public void agregarOdontologo(OdontologoDTO odontologoDTO) {
         guardarOdontologoAux(odontologoDTO);
-    };
+    }
 
     @Override
     public void modificarOdontologo(OdontologoDTO odontologoDTO) {

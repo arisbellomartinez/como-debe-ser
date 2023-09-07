@@ -32,7 +32,7 @@ public class Odontologo {
         this.turnos = turnos;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "odontologo", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="odontologo", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Turno> turnos;
 
