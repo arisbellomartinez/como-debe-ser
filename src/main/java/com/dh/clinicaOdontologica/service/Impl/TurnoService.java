@@ -23,5 +23,10 @@ public class TurnoService implements ITurnoService{
         turnoRepository.save(turno);
     }
 
+    @Override
+    public void eliminarTurno(Long id) {
+        turnoRepository.deleteById(id);
+    }
+
 
 }

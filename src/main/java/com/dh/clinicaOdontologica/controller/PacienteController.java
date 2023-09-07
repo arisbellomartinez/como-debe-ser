@@ -1,6 +1,5 @@
 package com.dh.clinicaOdontologica.controller;
 
-import com.dh.clinicaOdontologica.entity.dto.OdontologoDTO;
 import com.dh.clinicaOdontologica.entity.dto.PacienteDTO;
 import com.dh.clinicaOdontologica.service.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
