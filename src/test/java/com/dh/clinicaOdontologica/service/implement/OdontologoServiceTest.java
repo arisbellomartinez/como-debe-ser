@@ -1,7 +1,6 @@
-package com.dh.clinicaOdontologica.service.Impl;
+package com.dh.clinicaOdontologica.service.implement;
 
 import com.dh.clinicaOdontologica.entity.dto.OdontologoDTO;
-import com.dh.clinicaOdontologica.service.IOdontologoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

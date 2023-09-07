@@ -1,4 +1,4 @@
-package com.dh.clinicaOdontologica.service.Impl;
+package com.dh.clinicaOdontologica.service.implement;
 
 import com.dh.clinicaOdontologica.entity.Turno;
 import com.dh.clinicaOdontologica.entity.dto.TurnoDTO;
