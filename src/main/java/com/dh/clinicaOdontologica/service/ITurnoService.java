@@ -1,10 +1,10 @@
 package com.dh.clinicaOdontologica.service;
 
-import com.dh.clinicaOdontologica.entity.dto.TurnoDTO;
+import com.dh.clinicaOdontologica.entity.Turno;
 
 public interface ITurnoService {
 
-    void crearTurno(TurnoDTO turnoDTO);
+    void crearTurno(Turno turno);
     void eliminarTurno(Long id);
 
 }

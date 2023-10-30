@@ -1,7 +1,7 @@
 package com.dh.clinicaOdontologica.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "odontologo")
 public class Odontologo {
     @Id
-    @SequenceGenerator(name = "odontologos_id", sequenceName = "odontologos_id", initialValue = 1)
+    @SequenceGenerator(name = "odontologos_id", sequenceName = "odontologos_id", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;

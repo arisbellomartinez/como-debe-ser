@@ -1,13 +1,16 @@
 package com.dh.clinicaOdontologica.controller;
 
-import com.dh.clinicaOdontologica.entity.dto.PacienteDTO;
+import com.dh.clinicaOdontologica.entity.Paciente;
+import com.dh.clinicaOdontologica.entity.Turno;
 import com.dh.clinicaOdontologica.service.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -17,24 +20,24 @@ public class PacienteController {
     IPacienteService pacienteService;
 
     @PostMapping()
-    public ResponseEntity<?> crearPaciente(@RequestBody PacienteDTO pacienteDTO){
-        pacienteService.agregarPaciente(pacienteDTO);
+    public ResponseEntity<?> crearPaciente(@RequestBody Paciente paciente){
+        pacienteService.agregarPaciente(paciente);
         return ResponseEntity.status(HttpStatus.OK).body("Paciente creado");
     }
 
     @GetMapping("/listarTodos")
-    public Set<PacienteDTO> listarPacientes() {
+    public List<Paciente> listarPacientes() {
         return pacienteService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public PacienteDTO listarPacientePorId(@PathVariable Long id){
+    public Optional<Paciente> listarPacientePorId(@PathVariable Long id){
         return pacienteService.listarPaciente(id);
     }
 
     @PutMapping()
-    public ResponseEntity<String> actualizarPaciente(@RequestBody PacienteDTO pacienteDTO){
-        pacienteService.modificarPaciente(pacienteDTO);
+    public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente){
+        pacienteService.modificarPaciente(paciente);
         return ResponseEntity.status(HttpStatus.OK).body("Paciente actualizado");
     }
 

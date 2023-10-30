@@ -1,6 +1,6 @@
 package com.dh.clinicaOdontologica.controller;
 
-import com.dh.clinicaOdontologica.entity.dto.TurnoDTO;
+import com.dh.clinicaOdontologica.entity.Turno;
 import com.dh.clinicaOdontologica.service.ITurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +15,8 @@ public class TurnoController {
     ITurnoService turnoService;
 
     @PostMapping()
-    public ResponseEntity<?> crearTurno(@RequestBody TurnoDTO turnoDTO){
-        turnoService.crearTurno(turnoDTO);
+    public ResponseEntity<?> crearTurno(@RequestBody Turno turno){
+        turnoService.crearTurno(turno);
         return ResponseEntity.status(HttpStatus.OK).body("Turno creado");
     }
 

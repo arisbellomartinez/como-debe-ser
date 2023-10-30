@@ -1,12 +1,12 @@
 package com.dh.clinicaOdontologica.service.implement;
 
 import com.dh.clinicaOdontologica.entity.Turno;
-import com.dh.clinicaOdontologica.entity.dto.TurnoDTO;
 import com.dh.clinicaOdontologica.repository.ITurnoRepository;
 import com.dh.clinicaOdontologica.service.ITurnoService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Service
 public class TurnoService implements ITurnoService{
@@ -14,12 +14,8 @@ public class TurnoService implements ITurnoService{
     @Autowired
     ITurnoRepository turnoRepository;
 
-    @Autowired
-    ObjectMapper mapper;
-
     @Override
-    public void crearTurno(TurnoDTO turnoDTO) {
-        Turno turno = mapper.convertValue(turnoDTO, Turno.class);
+    public void crearTurno(Turno turno) {
         turnoRepository.save(turno);
     }
 

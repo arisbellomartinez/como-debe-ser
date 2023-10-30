@@ -1,7 +1,8 @@
 package com.dh.clinicaOdontologica.entity.dto;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PacienteDTO {
 
     private Long id;

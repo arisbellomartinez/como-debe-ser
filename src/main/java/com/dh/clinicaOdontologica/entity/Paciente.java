@@ -1,6 +1,6 @@
 package com.dh.clinicaOdontologica.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +14,23 @@ import java.time.LocalDate;
 public class Paciente {
 
     @Id
-    @SequenceGenerator(name = "pacientes_id", sequenceName = "pacientes_id", initialValue = 1)
+    @SequenceGenerator(name = "pacientes_id", sequenceName = "pacientes_id", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
     private String nombre;
     private String apellido;
-    private String domicilio;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilio_id")
+    private Domicilio domicilio;
     private Integer dni;
     private LocalDate fechaAlta;
 
     public Paciente() {}
 
     @Autowired
-    public Paciente(String nombre, String apellido, String domicilio, Integer dni, LocalDate fechaAlta, Turno turno) {
+    public Paciente(String nombre, String apellido, Domicilio domicilio, Integer dni, LocalDate fechaAlta, Turno turno) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
@@ -38,6 +40,7 @@ public class Paciente {
     }
 
     @OneToOne(mappedBy = "paciente")
+    @JoinColumn(name = "turno")
     private Turno turno;
 
 }

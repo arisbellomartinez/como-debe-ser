@@ -1,13 +1,14 @@
 package com.dh.clinicaOdontologica.controller;
 
-import com.dh.clinicaOdontologica.entity.dto.OdontologoDTO;
+import com.dh.clinicaOdontologica.entity.Odontologo;
 import com.dh.clinicaOdontologica.service.IOdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/odontologos")
@@ -17,24 +18,24 @@ public class OdontologoController {
     IOdontologoService odontologoService;
 
     @PostMapping()
-    public ResponseEntity<?> crearOdontologo(@RequestBody OdontologoDTO odontologoDTO){
-        odontologoService.agregarOdontologo(odontologoDTO);
+    public ResponseEntity<?> crearOdontologo(@RequestBody Odontologo odontologo){
+        odontologoService.agregarOdontologo(odontologo);
         return ResponseEntity.status(HttpStatus.OK).body("Odontologo creado");
     }
 
     @GetMapping("/listarTodos")
-    public Set<OdontologoDTO> listarOdontologos() {
+    public List<Odontologo> listarOdontologos() {
         return odontologoService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public OdontologoDTO listarOdontologoPorId(@PathVariable Long id){
+    public Optional<Odontologo> listarOdontologoPorId(@PathVariable Long id){
         return odontologoService.listarOdontologo(id);
     }
 
     @PutMapping()
-    public ResponseEntity<String> actualizarOdontologo(@RequestBody OdontologoDTO odontologoDTO){
-        odontologoService.modificarOdontologo(odontologoDTO);
+    public ResponseEntity<String> actualizarOdontologo(@RequestBody Odontologo odontologo){
+        odontologoService.modificarOdontologo(odontologo);
         return ResponseEntity.status(HttpStatus.OK).body("Odontologo actualizado");
     }
 
